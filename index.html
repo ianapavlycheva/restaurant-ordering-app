@@ -7,6 +7,34 @@
     <title>Reastaurant Ordering App</title>
   </head>
   <body>
+    <header></header>
+
+    <div class="modal" id="modal">
+      <div class="modal-inner" id="modal-inner">
+        <h2>Enter card details</h2>
+        <form id="order-form">
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Enter your name"
+            required
+          />
+          <input
+            type="number"
+            name="cardNumber"
+            placeholder="Enter card number"
+            required
+          />
+          <input
+            type="number"
+            name="cardCvv"
+            placeholder="Enter card CVV"
+            required
+          />
+          <button type="submit" class="modal-btn">Pay</button>
+        </form>
+      </div>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>
