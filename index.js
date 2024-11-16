@@ -1,8 +1,9 @@
 import { menuArray } from "./data.js";
 
+const selectedDishes = {};
+
 function getFeedHtml() {
   let feedHtml = ``;
-
   menuArray.forEach(function (dish) {
     feedHtml += `
 <div class="dish">
@@ -19,8 +20,47 @@ function getFeedHtml() {
   return feedHtml;
 }
 
+function getOrderSummaryHtml() {
+  let orderHtml = "";
+  let totalPrice = 0;
+
+  for (const dishId in selectedDishes) {
+    const dish = selectedDishes[dishId];
+    const dishTotal = dish.price;
+    totalPrice += dishTotal;
+
+    orderHtml += `
+
+      <div>
+        <p>${dish.name}</p>
+        <p>$${dishTotal}</p>
+      </div>`;
+  }
+
+  if (totalPrice > 0) {
+    orderHtml += `
+      <hr>
+      <div>
+        <p>Total price:></p>
+        <p>$${totalPrice}</p>
+      </div>`;
+  }
+
+  return orderHtml;
+}
+
 function render() {
   document.getElementById("feed").innerHTML = getFeedHtml();
+  document.getElementById("order-summary").innerHTML = getOrderSummaryHtml();
 }
+
+document.addEventListener("click", function (e) {
+  if (e.target.dataset.add) {
+    const dishId = e.target.dataset.add;
+    const selectedDish = menuArray.find((dish) => dish.id == dishId);
+    selectedDishes[dishId] = { ...selectedDish, quantity: 1 };
+  }
+  render();
+});
 
 render();
