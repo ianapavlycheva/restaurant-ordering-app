@@ -34,6 +34,7 @@ function getOrderSummaryHtml() {
       <div>
         <p>${dish.name}</p>
         <p>$${dishTotal}</p>
+         <button class="btn-remove" data-remove="${dishId}">Remove</button>
       </div>`;
   }
 
@@ -58,9 +59,27 @@ document.addEventListener("click", function (e) {
   if (e.target.dataset.add) {
     const dishId = e.target.dataset.add;
     const selectedDish = menuArray.find((dish) => dish.id == dishId);
-    selectedDishes[dishId] = { ...selectedDish, quantity: 1 };
+
+    if (selectedDishes[dishId]) {
+      selectedDishes[dishId].quantity++;
+    } else {
+      selectedDishes[dishId] = { ...selectedDish, quantity: 1 };
+    }
+
+    render();
+  } else if (e.target.dataset.remove) {
+    const dishId = e.target.dataset.remove;
+
+    if (selectedDishes[dishId]) {
+      selectedDishes[dishId].quantity--;
+
+      if (selectedDishes[dishId].quantity === 0) {
+        delete selectedDishes[dishId];
+      }
+    }
+
+    render();
   }
-  render();
 });
 
 render();
