@@ -42,8 +42,9 @@ function getOrderSummaryHtml() {
     orderHtml += `
       <hr>
       <div>
-        <p>Total price:></p>
+        <p>Total price:</p>
         <p>$${totalPrice}</p>
+        <button class="btn-complete">Complete order</button>
       </div>`;
   }
 
@@ -79,6 +80,9 @@ document.addEventListener("click", function (e) {
     }
 
     render();
+  } else if (e.target.classList.contains("btn-complete")) {
+    const modal = document.querySelector(".modal");
+    modal.style.display = "block";
   }
 });
 
