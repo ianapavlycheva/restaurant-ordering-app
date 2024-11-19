@@ -24,6 +24,10 @@ function getOrderSummaryHtml() {
   let orderHtml = "";
   let totalPrice = 0;
 
+  if (Object.keys(selectedDishes).length > 0) {
+    orderHtml += `<h3>Your order</h3>`;
+  }
+
   for (const dishId in selectedDishes) {
     const dish = selectedDishes[dishId];
     const dishTotal = dish.price;
@@ -32,9 +36,10 @@ function getOrderSummaryHtml() {
     orderHtml += `
 
       <div>
-        <p>${dish.name}</p>
-        <p>$${dishTotal}</p>
-         <button class="btn-remove" data-remove="${dishId}">Remove</button>
+        <span>${dish.name}</span>
+        <button class="btn-remove" data-remove="${dishId}">Remove</button>
+        <span>$${dishTotal}</span>
+
       </div>`;
   }
 
@@ -42,8 +47,8 @@ function getOrderSummaryHtml() {
     orderHtml += `
       <hr>
       <div>
-        <p>Total price:</p>
-        <p>$${totalPrice}</p>
+        <span>Total price:</span>
+        <span>$${totalPrice}</span>
         <button class="btn-complete">Complete order</button>
       </div>`;
   }
