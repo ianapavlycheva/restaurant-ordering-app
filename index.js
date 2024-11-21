@@ -88,6 +88,15 @@ document.addEventListener("click", function (e) {
   } else if (e.target.classList.contains("btn-complete")) {
     const modal = document.querySelector(".modal");
     modal.style.display = "block";
+  } else if (e.target.classList.contains("modal-btn")) {
+    e.preventDefault();
+    const nameInput = document.querySelector('input[name="fullName"]').value;
+    const modal = document.querySelector(".modal");
+    modal.style.display = "none";
+
+    const thanksMessage = document.getElementById("thanks-message");
+    thanksMessage.textContent = `Thanks, ${nameInput}!`;
+    thanksMessage.style.display = "block";
   }
 });
 
