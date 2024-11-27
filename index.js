@@ -25,7 +25,7 @@ function getOrderSummaryHtml() {
   let totalPrice = 0;
 
   if (Object.keys(selectedDishes).length > 0) {
-    orderHtml += `<h3>Your order</h3>`;
+    orderHtml += `<div class="order-summary"><h3>Your order</h3>`;
   }
 
   for (const dishId in selectedDishes) {
@@ -46,7 +46,7 @@ function getOrderSummaryHtml() {
   if (totalPrice > 0) {
     orderHtml += `
       <hr>
-      <div>
+      <div class="order-total">
         <span>Total price:</span>
         <span>$${totalPrice}</span>
         <button class="btn-complete">Complete order</button>
