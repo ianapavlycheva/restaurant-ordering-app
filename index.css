@@ -58,20 +58,28 @@ h1 {
   width: 475px;
   margin-left: 25px;
   margin-right: 25px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.modal-btn:hover {
+  background-color: #13b980;
+  transform: scale(1.02);
 }
 
 input {
-  margin-top: 10px;
-  border: 1px solid #757575;
+  width: calc(100% - 50px);
   padding: 20px;
-  width: 475px;
-  border-radius: 4px;
-  margin: 25px 25px 25px 25px;
+  margin: 25px;
   font-size: 20px;
+  border: 1px solid #757575;
+  border-radius: 4px;
 }
 
 .dish {
-  margin: 0 50px 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 50px;
 }
 .emoji {
   font-size: 70px;
@@ -94,11 +102,9 @@ input {
 }
 
 .line {
-  border: none;
   height: 1px;
   background-color: #d2d2d2;
   margin: 0 55px;
-  width: auto;
 }
 
 .btn-add {
@@ -111,6 +117,14 @@ input {
   font-weight: 200;
   color: #3c3c3c;
   margin-left: 120px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.btn-add:hover {
+  background-color: #16db99;
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
 .dish {
@@ -126,10 +140,15 @@ input {
   background-color: #16db99;
   color: #ffffff;
   font-size: 16px;
-  border-radius: 4px;
   border: none;
-  font-weight: 700px;
-  height: 60px;
-  width: 500px;
-  margin: 0 50px 0 50px;
+  border-radius: 4px;
+  width: calc(100% - 100px);
+  margin: 20px 50px;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.btn-complete:hover {
+  background-color: #13b980;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
