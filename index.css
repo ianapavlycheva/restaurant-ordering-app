@@ -139,10 +139,21 @@ input {
 }
 
 .order-summary h3 {
-  margin: 0 0 15px 0;
-  font-size: 24px;
-  font-weight: bold;
+  text-align: center;
+  margin: 45px 0 45px 0;
+  font-size: 28px;
+  font-weight: 400;
   color: #333;
+}
+
+.dish-summary {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 30px;
+}
+
+.dish-summary span {
+  font-size: 28px;
 }
 
 .order-item span {
@@ -151,15 +162,15 @@ input {
 }
 
 .btn-complete {
-  padding: 18px 24px;
+  display: block;
+  padding: 18px 0;
   cursor: pointer;
   background-color: #16db99;
   color: #ffffff;
   font-size: 16px;
   border: none;
   border-radius: 4px;
-  width: calc(100% - 100px);
-  margin: 20px 50px;
+  width: 100%;
   text-align: center;
   transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
@@ -167,4 +178,13 @@ input {
   background-color: #13b980;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
+}
+
+#thanks-message {
+  color: #065f46;
+  text-align: center;
+  padding: 50px 0;
+  background-color: #ecfdf5;
+  font-size: 30px;
+  margin: 0 30px;
 }

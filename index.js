@@ -25,7 +25,7 @@ function getOrderSummaryHtml() {
   let totalPrice = 0;
 
   if (Object.keys(selectedDishes).length > 0) {
-    orderHtml += `<div class="order-summary"><h3>Your order</h3>`;
+    orderHtml += `<h3>Your order</h3>`;
   }
 
   for (const dishId in selectedDishes) {
@@ -35,9 +35,11 @@ function getOrderSummaryHtml() {
 
     orderHtml += `
 
+      <div class="dish-summary">
       <div>
         <span>${dish.name}</span>
         <button class="btn-remove" data-remove="${dishId}">Remove</button>
+        </div>
         <span>$${dishTotal}</span>
 
       </div>`;
@@ -46,7 +48,7 @@ function getOrderSummaryHtml() {
   if (totalPrice > 0) {
     orderHtml += `
       <hr>
-      <div class="order-total">
+      <div>
         <span>Total price:</span>
         <span>$${totalPrice}</span>
         <button class="btn-complete">Complete order</button>
@@ -95,7 +97,7 @@ document.addEventListener("click", function (e) {
     modal.style.display = "none";
 
     const thanksMessage = document.getElementById("thanks-message");
-    thanksMessage.textContent = `Thanks, ${nameInput}!`;
+    thanksMessage.textContent = `Thanks, ${nameInput}! Your order is on its way!`;
     thanksMessage.style.display = "block";
   }
 });
