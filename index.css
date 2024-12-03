@@ -6,6 +6,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Smythe", cursive;
+  background-color: #d8d8d8;
+}
+
+#display {
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 600px;
+  background-color: #ffffff;
 }
 
 header {
